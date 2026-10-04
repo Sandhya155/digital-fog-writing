@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Blow Detection</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Blow Detection</h1>
+
+    <p>
+        Blow towards the camera
+    </p>
+
+
+    <!-- Camera -->
+
+    <div class="camera-box">
+
+        <video
+                id="camera"
+                autoplay
+                muted
+                playsinline>
+        </video>
+
+        <canvas id="canvas"></canvas>
+
+        <!-- Phase 4A: Fingertip marker -->
+        <div id="fingerPoint"></div>
+
+    </div>
+
+
+    <!-- Camera status -->
+
+    <div class="status-box">
+
+        <span id="statusIndicator"></span>
+
+        <span id="statusText">
+            Camera not started
+        </span>
+
+    </div>
+
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <button
+                id="startButton"
+                onclick="startCamera()">
+
+            Start Camera
+
+        </button>
+
+
+        <button
+                id="stopButton"
+                onclick="stopCamera()"
+                disabled>
+
+            Stop Camera
+
+        </button>
+
+        <button
+        id="clearFogButton"
+        onclick="clearFog()">
+        Clear Fog
+        </button>
+
+    </div>
+
+
+    <!-- ML Detection Result -->
+
+    <div class="result-box">
+
+        <h2>Detection</h2>
+
+        <p id="detectionResult">
+
+            Waiting for camera...
+
+        </p>
+
+    </div>
+
+
+    <!-- Phase 3: Fog Effect -->
+
+    <div id="fogOverlay">
+          <canvas id="fogCanvas"></canvas>
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
